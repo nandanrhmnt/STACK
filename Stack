@@ -1,0 +1,81 @@
+//Stuck Using Array
+#include <iostream>
+using namespace std;
+
+int Max = 5;
+string dataNama [7];
+int top;
+
+bool stackFull(){
+    if(top >= Max){
+       return true; 
+    }else{
+        return false;
+    }
+}
+bool stackEmpty(){
+    if(top == 0){
+       return true; 
+    }else{
+        return false;
+    }
+}
+
+void pushStack(string name){
+    if (stackFull()){
+       cout<< "Data Sudah Penuh !!"<<endl; 
+    }else{
+        dataNama[top] = name;
+        top++;
+    }
+}
+void popStack(){
+    if(stackEmpty()){
+        cout<< "Data Kosong !!"<<endl;
+    }else{
+        dataNama[top -1] = "";
+        top--;
+    }
+}
+
+int countName(){
+    if (stackFull()){
+        return Max;
+    }else if(stackEmpty()){
+        return 0;
+    }else{
+        return top;
+    }
+}
+
+void displayStack(){
+    cout<< "Data Nama : "<< countName() <<endl;
+    for (int i = Max -1; i >= 0; i-- ){
+        if(dataNama[i] != ""){
+           cout<<i+1 <<"."<< "" << dataNama[i] <<endl;     
+        }
+    }    
+    cout<<"\n"; 
+}
+    
+
+int main (){
+    pushStack("serah");
+    displayStack();
+
+    pushStack("udin");
+    displayStack();
+
+    pushStack("aang");
+    displayStack();
+
+    popStack();
+    displayStack();
+
+    pushStack("avatar");
+    displayStack();
+
+    pushStack("nanda");
+    displayStack();
+    
+}
